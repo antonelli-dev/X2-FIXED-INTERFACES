@@ -8,14 +8,26 @@ import Image from "next/image";
 import { InputButton } from "../ui/InputButton/InputButton";
 import { ChatHistory } from "@/app/chat/components/ChatHistory/ChatHistory";
 import Link from "next/link";
+import { useState } from "react";
+import { UploadDocumentModal } from "@/app/chat/components/UploadDocumentModal/UploadDocumentModal";
 
 export const ChatAside = () => {
 
     const setIsLeftAsideCollapsed = useUIStore((state) => state.setIsLeftAsideCollapsed);
     const isLeftAsideCollapsed = useUIStore((state) => state.isLeftAsideCollapsed);
 
+    const [isModalUploadDocumentOpen, setIsModalUploadDocumentOpen] = useState<boolean>(false);
+
     const handleCollapsed = () => {
         setIsLeftAsideCollapsed(!isLeftAsideCollapsed);
+    }
+
+    const handleOpenModalUploadDocument = () => {
+        setIsModalUploadDocumentOpen(true);
+    };
+
+    const handleCloseUploadDocumentModal = () => {
+        setIsModalUploadDocumentOpen(false);
     }
 
     return (
@@ -53,7 +65,8 @@ export const ChatAside = () => {
                 "w-full h-fit mb-2",
                 isLeftAsideCollapsed ? "flex flex-row justify-center" : "",
             )}>
-                <InputButton showOnlyIcon={isLeftAsideCollapsed} text="Upload" className="w-full" icon={<Upload></Upload>}></InputButton>
+                <InputButton showOnlyIcon={isLeftAsideCollapsed} text="Upload" className="w-full" icon={<Upload></Upload>} onClick={handleOpenModalUploadDocument}></InputButton>
+                <UploadDocumentModal onClose={handleCloseUploadDocumentModal} isOpen={false}></UploadDocumentModal>
             </div>
            
            <ChatHistory className="flex flex-col flex-grow h-[90%] overflow-y-auto"></ChatHistory>
