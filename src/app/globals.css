@@ -42,3 +42,44 @@ body {
 .bg-gradient {
   background: linear-gradient(180deg, #ebf5ff 0%, #ffffff 46.5%);
 }
+
+
+.custom-prose {
+  max-width: none;
+  font-size: 0.875rem; /* equivale a text-sm */
+  color: #1f2937; /* equivale a text-gray-800 */
+}
+
+.custom-prose p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.custom-prose ul {
+  padding-left: 1.25rem; /* pl-5 */
+  list-style-type: disc;
+}
+
+.custom-prose li {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.custom-prose table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.custom-prose th {
+  border: 1px solid #d1d5db; /* border-gray-300 */
+  background-color: #e5e7eb; /* bg-gray-200 */
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.custom-prose td {
+  border: 1px solid #d1d5db;
+  padding: 0.5rem;
+}

@@ -56,13 +56,7 @@ export const ChatMessage = ({ message: msg }: Props) => {
               </p>
             ) : (
               <div
-                className="prose max-w-none text-sm text-gray-800
-                    prose-p:my-2
-                    prose-ul:pl-5 prose-ul:list-disc
-                    prose-li:my-1
-                    [&_table]:border-collapse [&_table]:w-full [&_table]:my-4
-                    [&_th]:border [&_th]:border-gray-300 [&_th]:bg-gray-200 [&_th]:p-2 [&_th]:text-left
-                    [&_td]:border [&_td]:border-gray-300 [&_td]:p-2"
+                className="custom-prose"
                 dangerouslySetInnerHTML={{
                   __html: msg.content.replace(/```html|```/g, "").trim(),
                 }}
